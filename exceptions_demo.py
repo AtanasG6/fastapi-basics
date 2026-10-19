@@ -76,7 +76,7 @@ def handle_app_exception(request: Request, exc: AppException):
     #else:
         #status_code = status.HTTP_400_BAD_REQUEST
 
-    status_code = map_app_error_to_http_status.get(exc.error_type, status.HTTP_400_BAD_REQUEST)
+    status_code = MAP_ERRORS.get(exc.error_type, status.HTTP_400_BAD_REQUEST)
 
     return JSONResponse(
         status_code=status_code,
